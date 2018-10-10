@@ -1,0 +1,9 @@
+<!--Page Title-->
+<div class="row">
+    <div class="page-title">Edit employee</div>
+</div>
+
+<!--Employee Details Component-->
+<div *ngIf="employeeDetails">
+    <ansh-employee-details [employeeDetails]="employeeDetails" (saveDetails)="saveDetails($event)"></ansh-employee-details>
+</div>

@@ -1,0 +1,43 @@
+<div class="form">
+        <div class="row">
+            <div class="col-md-2"><label>Name:</label></div>
+            <div class="col-md-3"><input [(ngModel)]="name" (blur)="validateName()" placeholder=" name" required></div>
+            <div class="col-md-4">
+                <div class="alert-danger" *ngIf="nameIsEmpty">
+                    Name is required.</div>
+                <div class="alert-danger" *ngIf="nameMinLengthError">
+                    Name must be at least 4 characters long.</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><label>Phone:</label></div>
+            <div class="col-md-3"><input (blur)="validatePhone()" [(ngModel)]="phone" placeholder=" phone" required></div>
+            <div class="col-md-4">
+                <div class="alert-danger" *ngIf="phoneIsEmpty">
+                    Phone number is required.
+                </div>
+                <div class="alert-danger" *ngIf="phoneIsInvalid">
+                    Phone number is invalid.
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><label>City:</label></div>
+            <div class="col-md-3"><input [(ngModel)]="city" placeholder=" city"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><label>Address:</label></div>
+            <div class="col-md-3"><input [(ngModel)]="addressLine1" placeholder=" line 1"></div>
+            <div class="col-md-3"><input [(ngModel)]="addressLine2" placeholder=" line 2"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><label>Postal Code:</label></div>
+            <div class="col-md-3"><input [(ngModel)]="postalCode" placeholder=" postal code"></div>
+        </div>
+</div>
+<div class="row" style="padding: 10px 0px 10px 50px;">
+    <div class="col-md-2"></div>
+    <div class="col-md-3">
+        <button type="submit" class="mat-button" (click)="save()">Save</button>
+    </div>
+</div>

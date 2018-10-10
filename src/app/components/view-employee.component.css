@@ -1,0 +1,6 @@
+.table-container {
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 5px 50px 5px 50px;
+}

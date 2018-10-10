@@ -1,0 +1,65 @@
+<!--Page Title-->
+<div class="row">
+    <div class="page-title">View employees</div>
+</div>
+<div class="row" style="padding: 10px 0px 10px 65px;">
+    <button class="mat-button" routerLink="add">Add New</button>
+</div>
+<!--Employee Table-->
+<div class="table-container">
+    <p>Note: Click on the column headers to enable sorting.</p>
+    <input type="text" style="max-width: 370px" (keyup)="filterData($event.target.value)" placeholder=" filter">
+    <table mat-table #table [dataSource]="employees" matSort (matSortChange)="sortData($event)" matSortDisableClear>
+
+        <!-- Id Column -->
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Id </th>
+            <td mat-cell *matCellDef="let employee"> {{employee.id}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+            <td mat-cell *matCellDef="let employee"> {{employee.name}} </td>
+        </ng-container>
+
+        <!-- Phone Column -->
+        <ng-container matColumnDef="phone">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Phone </th>
+            <td mat-cell *matCellDef="let employee"> {{employee.phone | anshPhoneValidation}} </td>
+        </ng-container>
+
+        <!-- City Column -->
+        <ng-container matColumnDef="city">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> City </th>
+            <td mat-cell *matCellDef="let employee"> {{employee.address.city}} </td>
+        </ng-container>
+
+        <!-- Address 1 Column -->
+        <ng-container matColumnDef="address_line1" >
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Address 1 </th>
+            <td mat-cell *matCellDef="let employee"> {{employee.address.address_line1}} </td>
+        </ng-container>
+
+        <!-- Address 2 Column -->
+        <ng-container matColumnDef="address_line2">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Address 2 </th>
+            <td mat-cell *matCellDef="let employee"> {{employee.address.address_line2}} </td>
+        </ng-container>
+
+        <!-- Postal Code Column -->
+        <ng-container matColumnDef="postal_code">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Postal Code </th>
+            <td mat-cell *matCellDef="let employee"> {{employee.address.postal_code}} </td>
+        </ng-container>
+
+        <!-- Edit Column -->
+        <ng-container matColumnDef="edit">
+            <th mat-header-cell *matHeaderCellDef> Edit </th>
+            <td mat-cell *matCellDef="let employee"> <a routerLink="{{employee.id}}/edit">Edit</a> </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>

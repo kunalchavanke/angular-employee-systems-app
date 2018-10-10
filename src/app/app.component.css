@@ -1,0 +1,14 @@
+a {
+    color: white;
+    text-decoration: none;
+}
+.toolbar { 
+    background-color : slategrey;
+}
+.mat-button {
+    text-align: left;
+    padding: 5px;
+}
+.angular-logo{
+    inline-size: 20%;
+}
